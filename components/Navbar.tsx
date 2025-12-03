@@ -16,23 +16,6 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 100; // Header height + padding
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-voler-dark/80 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -42,10 +25,10 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
         
         <div className="hidden md:flex items-center space-x-12">
             <div className="flex space-x-8 text-xs font-medium text-gray-300 tracking-[0.2em] uppercase">
-                <a href="#vision" onClick={(e) => scrollToSection(e, 'vision')} className="hover:text-voler-gold transition-colors cursor-pointer">Vision</a>
-                <a href="#specs" onClick={(e) => scrollToSection(e, 'specs')} className="hover:text-voler-gold transition-colors cursor-pointer">Tech Stack</a>
-                <a href="#roadmap" onClick={(e) => scrollToSection(e, 'roadmap')} className="hover:text-voler-gold transition-colors cursor-pointer">Timeline</a>
-                <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-voler-gold transition-colors cursor-pointer">Contact</a>
+                <a href="#vision" className="hover:text-voler-gold transition-colors cursor-pointer">Vision</a>
+                <a href="#specs" className="hover:text-voler-gold transition-colors cursor-pointer">Tech Stack</a>
+                <a href="#roadmap" className="hover:text-voler-gold transition-colors cursor-pointer">Timeline</a>
+                <a href="#contact" className="hover:text-voler-gold transition-colors cursor-pointer">Contact</a>
             </div>
 
             {/* Language Switcher */}
