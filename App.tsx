@@ -128,7 +128,7 @@ const App: React.FC = () => {
                 voler.office@gmx.at
               </a>
               <p className="text-gray-700 text-xs mt-4">
-                © 2024 Dennis Kral e.U.. All rights reserved.
+                © 2025 Dennis Kral e.U.. All rights reserved.
               </p>
             </div>
           </div>
