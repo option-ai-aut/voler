@@ -124,8 +124,8 @@ const App: React.FC = () => {
             
             <div className="flex flex-col items-start md:items-end space-y-4">
               <p className="text-voler-gold text-xs tracking-widest uppercase">{content.footer.inquiries}</p>
-              <a href="mailto:contact@option-ai.at" className="text-gray-300 hover:text-white transition-colors text-xl font-serif italic border-b border-transparent hover:border-white pb-1">
-                contact@option-ai.at
+              <a href="mailto:voler.office@gmx.at" className="text-gray-300 hover:text-white transition-colors text-xl font-serif italic border-b border-transparent hover:border-white pb-1">
+                voler.office@gmx.at
               </a>
               <p className="text-gray-700 text-xs mt-4">
                 © 2024 Dennis Kral e.U.. All rights reserved.
