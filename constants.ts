@@ -114,7 +114,7 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
     },
     specs: {
       badge: "Spezifikationen",
-      title: "Tech Stack",
+      title: "Tech Pack",
       detailView: "Detailansicht",
       items: [
         {

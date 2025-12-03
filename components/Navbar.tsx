@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
         <div className="hidden md:flex items-center space-x-12">
             <div className="flex space-x-8 text-xs font-medium text-gray-300 tracking-[0.2em] uppercase">
                 <a href="#vision" className="hover:text-voler-gold transition-colors cursor-pointer">Vision</a>
-                <a href="#specs" className="hover:text-voler-gold transition-colors cursor-pointer">Tech Stack</a>
+                <a href="#specs" className="hover:text-voler-gold transition-colors cursor-pointer">Tech Pack</a>
                 <a href="#roadmap" className="hover:text-voler-gold transition-colors cursor-pointer">Timeline</a>
                 <a href="#contact" className="hover:text-voler-gold transition-colors cursor-pointer">Contact</a>
             </div>
