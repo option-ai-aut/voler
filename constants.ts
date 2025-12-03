@@ -53,7 +53,7 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
     },
     specs: {
       badge: "Specification",
-      title: "Tech Stack",
+      title: "Tech Pack",
       detailView: "Detail View",
       items: [
         {
