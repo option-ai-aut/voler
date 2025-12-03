@@ -120,6 +120,7 @@ const App: React.FC = () => {
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center">
             <div className="mb-8 md:mb-0">
               <h4 className="text-3xl font-serif font-bold text-white tracking-widest">VOLER</h4>
+              <p className="text-gray-600 text-[10px] tracking-[0.2em] uppercase mt-2">Based in Austria</p>
             </div>
             
             <div className="flex flex-col items-start md:items-end space-y-4">
