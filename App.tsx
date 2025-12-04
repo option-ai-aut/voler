@@ -12,9 +12,9 @@ const App: React.FC = () => {
   // Retrieve the correct content based on language state
   const content = DICTIONARY[lang];
 
-  // Format the date for display based on locale
+  // Format the date for display (Always DD.MM.YYYY)
   const dateObj = new Date(LAUNCH_DATE);
-  const formattedDate = dateObj.toLocaleDateString(lang === 'DE' ? 'de-DE' : 'en-US', { 
+  const formattedDate = dateObj.toLocaleDateString('de-DE', { 
     year: 'numeric', 
     month: '2-digit', 
     day: '2-digit' 
@@ -71,7 +71,7 @@ const App: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} // Custom bezier for premium feel
-                className="text-4xl md:text-9xl font-serif font-bold text-white tracking-tight mb-8 md:mb-12 drop-shadow-2xl leading-none"
+                className="relative z-30 text-lg sm:text-3xl md:text-9xl font-serif font-bold text-white tracking-tight mb-4 md:mb-12 drop-shadow-2xl leading-none whitespace-nowrap"
               >
                 VOLER PRIVÉ
               </motion.h1>
@@ -144,7 +144,7 @@ const App: React.FC = () => {
         <footer id="contact" className="bg-black/40 backdrop-blur-md py-20 border-t border-white/5 relative">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center">
             <div className="mb-8 md:mb-0">
-              <h4 className="text-3xl font-serif font-bold text-white tracking-widest">VOLER PRIVÉ</h4>
+              <h4 className="text-2xl md:text-3xl font-serif font-bold text-white tracking-widest whitespace-nowrap">VOLER PRIVÉ</h4>
               <p className="text-gray-600 text-[10px] tracking-[0.2em] uppercase mt-2">Based in Vienna</p>
             </div>
             
