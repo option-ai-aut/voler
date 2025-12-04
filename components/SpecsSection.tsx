@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { IMAGES } from '../constants';
 import { ProductSpec } from '../types';
 
@@ -12,7 +13,13 @@ interface SpecsSectionProps {
 }
 
 const SpecCard: React.FC<{ spec: ProductSpec, index: number }> = ({ spec, index }) => (
-  <div className="backdrop-blur-2xl bg-white/[0.03] border border-white/10 p-8 rounded-2xl hover:bg-white/[0.06] transition-all duration-500 group shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+  <motion.div 
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-50px" }}
+    transition={{ duration: 0.6, delay: index * 0.1 }}
+    className="backdrop-blur-2xl bg-white/[0.03] border border-white/10 p-8 rounded-2xl hover:bg-white/[0.06] transition-all duration-500 group shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]"
+  >
     <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
       <h3 className="text-2xl font-serif text-white italic">{spec.category}</h3>
       <span className="text-voler-gold font-serif text-lg opacity-60">0{index + 1}</span>
@@ -31,8 +38,8 @@ const SpecCard: React.FC<{ spec: ProductSpec, index: number }> = ({ spec, index 
           )}
         </div>
       ))}
-    </div>
-  </div>
+      </div>
+  </motion.div>
 );
 
 const SpecsSection: React.FC<SpecsSectionProps> = ({ content }) => {
@@ -61,7 +68,7 @@ const SpecsSection: React.FC<SpecsSectionProps> = ({ content }) => {
   };
 
   return (
-    <section id="specs" className="py-32 relative">
+    <section id="specs" className="py-16 md:py-32 relative">
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-20 text-center md:text-left flex flex-col md:flex-row items-end justify-between gap-8 border-b border-white/5 pb-8">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { RoadmapItem } from '../types';
 
 interface RoadmapProps {
@@ -11,7 +12,7 @@ interface RoadmapProps {
 
 const Roadmap: React.FC<RoadmapProps> = ({ content }) => {
   return (
-    <section id="roadmap" className="py-24 relative">
+    <section id="roadmap" className="py-16 md:py-24 relative">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-voler-gold text-xs font-bold tracking-[0.2em] uppercase">{content.badge}</span>
@@ -24,7 +25,14 @@ const Roadmap: React.FC<RoadmapProps> = ({ content }) => {
             const isCurrent = item.status === 'current';
             
             return (
-              <div key={index} className="md:flex items-center group relative pl-8 md:pl-0">
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="md:flex items-center group relative pl-8 md:pl-0"
+              >
                  {/* Timeline Dot */}
                  <div className={`
                     absolute left-[-5px] md:left-auto md:absolute md:left-1/2 md:-translate-x-1/2 w-3 h-3 rounded-full border-2 z-10
@@ -47,7 +55,7 @@ const Roadmap: React.FC<RoadmapProps> = ({ content }) => {
                       {item.description}
                     </p>
                  </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

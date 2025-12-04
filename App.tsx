@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Countdown from './components/Countdown';
 import SpecsSection from './components/SpecsSection';
@@ -30,7 +31,7 @@ const App: React.FC = () => {
         <Navbar lang={lang} setLang={setLang} />
 
         {/* HERO SECTION */}
-        <section id="vision" className="relative min-h-screen flex items-center justify-center pt-20 md:pt-0">
+        <section id="vision" className="relative min-h-screen flex items-center justify-center pt-24 md:pt-0 pb-12 md:pb-0">
           
           {/* HERO CONTENT CONTAINER */}
           <div className="w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center mt-8 md:mt-0">
@@ -38,8 +39,13 @@ const App: React.FC = () => {
             {/* LEFT: Typography & Countdown */}
             <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
               
-              {/* Internal Tag */}
-              <div className="mb-6 animate-fade-in-up">
+              {/* Internal Tag - Animated with Framer Motion */}
+              <motion.div 
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.8, ease: "easeOut" }}
+                 className="mb-6"
+              >
                   <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -49,20 +55,34 @@ const App: React.FC = () => {
                           {content.hero.internalTag}
                       </span>
                   </div>
-              </div>
+              </motion.div>
 
-              <div className="animate-fade-in-up delay-100">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              >
                 <span className="inline-block border-b border-voler-gold/50 pb-1 text-[10px] font-bold tracking-[0.3em] text-voler-gold uppercase mb-8">
                   {content.hero.est}
                 </span>
-              </div>
+              </motion.div>
 
-              <h1 className="text-6xl md:text-9xl font-serif font-bold text-white tracking-tight mb-12 drop-shadow-2xl leading-none">
-                VOLER
-              </h1>
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} // Custom bezier for premium feel
+                className="text-4xl md:text-9xl font-serif font-bold text-white tracking-tight mb-8 md:mb-12 drop-shadow-2xl leading-none"
+              >
+                VOLER PRIVÉ
+              </motion.h1>
               
               {/* Countdown Glass Box */}
-              <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 w-full max-w-md shadow-2xl shadow-black/50 relative overflow-hidden">
+              <motion.div 
+                 initial={{ opacity: 0, scale: 0.95 }}
+                 animate={{ opacity: 1, scale: 1 }}
+                 transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                 className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 w-full max-w-md shadow-2xl shadow-black/50 relative overflow-hidden"
+              >
                  <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
                  
                  <div className="flex flex-col items-center">
@@ -73,13 +93,18 @@ const App: React.FC = () => {
                     
                     <Countdown labels={content.countdown} />
                  </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* RIGHT: Floating Portrait Image (3:4) */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative">
                {/* Floating Glass Image Container */}
-               <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/80 group transform hover:-translate-y-2 transition-transform duration-700">
+               <motion.div 
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/80 group transform hover:-translate-y-2 transition-transform duration-700"
+               >
                   
                   {/* Bild OHNE Filter und OHNE Noise */}
                   <img 
@@ -103,7 +128,7 @@ const App: React.FC = () => {
                       </div>
                     </div>
                   </div>
-               </div>
+               </motion.div>
             </div>
 
           </div>
@@ -119,8 +144,8 @@ const App: React.FC = () => {
         <footer id="contact" className="bg-black/40 backdrop-blur-md py-20 border-t border-white/5 relative">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center">
             <div className="mb-8 md:mb-0">
-              <h4 className="text-3xl font-serif font-bold text-white tracking-widest">VOLER</h4>
-              <p className="text-gray-600 text-[10px] tracking-[0.2em] uppercase mt-2">Based in Austria</p>
+              <h4 className="text-3xl font-serif font-bold text-white tracking-widest">VOLER PRIVÉ</h4>
+              <p className="text-gray-600 text-[10px] tracking-[0.2em] uppercase mt-2">Based in Vienna</p>
             </div>
             
             <div className="flex flex-col items-start md:items-end space-y-4">
@@ -129,7 +154,7 @@ const App: React.FC = () => {
                 voler.office@gmx.at
               </a>
               <p className="text-gray-700 text-xs mt-4">
-                © 2025 Dennis Kral e.U.. All rights reserved.
+                © 2025 Voler Privé eUG. All rights reserved.
               </p>
             </div>
           </div>
