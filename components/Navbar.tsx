@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { IMAGES } from '../constants';
+
 interface NavbarProps {
   lang: 'EN' | 'DE';
   setLang: (lang: 'EN' | 'DE') => void;
@@ -36,8 +38,12 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-voler-dark/80 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* LOGO - Click schließt auch das Menu */}
-        <a href="#" onClick={closeMenu} className="text-sm md:text-2xl font-serif font-bold tracking-[0.15em] md:tracking-[0.2em] text-white z-50 relative whitespace-nowrap">
-          VOLER PRIVÉ
+        <a href="#" onClick={closeMenu} className="z-50 relative flex items-center">
+          <img 
+            src={IMAGES.LOGO_TEXT_WHITE} 
+            alt="VOLER PRIVÉ" 
+            className="h-6 md:h-8 w-auto object-contain"
+          />
         </a>
         
         {/* DESKTOP MENU */}

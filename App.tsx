@@ -32,10 +32,9 @@ const App: React.FC = () => {
 
         {/* HERO SECTION */}
         <section id="vision" className="relative min-h-screen flex items-center justify-center pt-24 md:pt-0 pb-12 md:pb-0">
-          
-          {/* HERO CONTENT CONTAINER */}
+          {/* ... HERO CONTENT ... */}
           <div className="w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center mt-8 md:mt-0">
-            
+            {/* ... (bestehender Hero Code) ... */}
             {/* LEFT: Typography & Countdown */}
             <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
               
@@ -132,6 +131,43 @@ const App: React.FC = () => {
             </div>
 
           </div>
+        </section>
+
+        {/* PHILOSOPHY / VISION SECTION */}
+        <section className="py-24 md:py-32 relative overflow-hidden">
+           <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <span className="text-voler-gold text-xs font-bold tracking-[0.2em] uppercase block mb-6">Philosophy</span>
+                <h2 className="text-3xl md:text-5xl font-serif text-white mb-8 italic leading-tight">
+                  "{content.hero.visionTitle}"
+                </h2>
+                <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-light">
+                  {content.hero.visionText}
+                </p>
+              </motion.div>
+
+              {/* VALUES GRID */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 border-t border-white/10 pt-12">
+                 {content.hero.values.map((val, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.2 }}
+                      className="flex flex-col items-center"
+                    >
+                       <div className="w-1 h-8 bg-gradient-to-b from-voler-gold to-transparent mb-4 opacity-50"></div>
+                       <span className="text-white font-serif italic text-xl tracking-wider">{val}</span>
+                    </motion.div>
+                 ))}
+              </div>
+           </div>
         </section>
 
         {/* SPECS / TECH STACK */}

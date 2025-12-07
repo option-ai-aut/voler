@@ -7,7 +7,10 @@ export const IMAGES = {
   // Produkt Bild (T-Shirt)
   PRODUCT_DETAIL: "https://drive.google.com/thumbnail?id=1ACqpEbTTjQgwYaroRbW5HnFPgpJDqkfo&sz=w1000", 
   // Platzhalter für Stoff-Detail
-  TEXTURE_CLOSEUP: "https://picsum.photos/id/355/800/800" 
+  TEXTURE_CLOSEUP: "https://picsum.photos/id/355/800/800",
+  // LOGOS
+  LOGO_TEXT_WHITE: "https://drive.google.com/thumbnail?id=1lim5EwMHVBVQFYJTASxoPvynEFTl8knH&sz=w1000",
+  LOGO_SYMBOL_WHITE: "https://drive.google.com/thumbnail?id=1iGe-zazfinmrgGaAEwoB9gLI2tU6kxuw&sz=w1000"
 };
 
 export const LAUNCH_DATE = "2026-04-01T00:00:00";
@@ -19,6 +22,12 @@ type ContentData = {
     launchLabel: string;
     materialLabel: string;
     materialValue: string;
+    visionTitle: string;
+    visionText: string;
+    valuesTitle: string;
+    values: string[];
+    storyTitle: string;
+    storyText: string;
   };
   specs: {
     badge: string;
@@ -50,6 +59,12 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
       launchLabel: "Official Launch Date",
       materialLabel: "Material",
       materialValue: "Merino",
+      visionTitle: "Define Momentum.",
+      visionText: "Voler exists to solve the problems of synthetic sportswear. No odor. No compromise. Pure Merino performance for those who demand excellence.",
+      valuesTitle: "Core Values",
+      values: ["Sustainable", "Exclusive", "Athletic"],
+      storyTitle: "The Origin",
+      storyText: "We built Voler because we couldn't find an alternative. Standard gym wear is synthetic, smelly, and mass-produced. We wanted something better: Health, Quality, Status. This is gym wear for the ambitious.",
     },
     specs: {
       badge: "Specification",
@@ -111,6 +126,12 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
       launchLabel: "Offizielles Startdatum",
       materialLabel: "Material",
       materialValue: "Merino",
+      visionTitle: "Define Momentum.",
+      visionText: "Voler existiert, um die Probleme synthetischer Sportkleidung zu lösen. Kein Geruch. Keine Kompromisse. Reine Merino-Performance für höchste Ansprüche.",
+      valuesTitle: "Unsere Werte",
+      values: ["Nachhaltig", "Exklusiv", "Sportlich"],
+      storyTitle: "Der Ursprung",
+      storyText: "Wir haben Voler gegründet, weil es keine Alternative gab. Standard-Sportkleidung ist synthetisch, riecht und ist Massenware. Wir wollten etwas Besseres: Gesundheit, Qualität, Status. Das ist Gym Wear für Ambitionierte.",
     },
     specs: {
       badge: "Spezifikationen",
