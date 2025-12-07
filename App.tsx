@@ -24,7 +24,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen font-sans selection:bg-voler-gold selection:text-voler-dark relative overflow-x-hidden">
       
-      {/* GLOBAL BACKGROUND: Radial Gradient Dark Blue -> Black */}
+      {/* GLOBAL BACKGROUND: Dark Blue -> Black Gradient */}
       <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_top_center,_var(--tw-gradient-stops))] from-[#172554] via-[#020617] to-black"></div>
       
       {/* CONTENT WRAPPER */}
@@ -32,108 +32,70 @@ const App: React.FC = () => {
         <Navbar lang={lang} setLang={setLang} />
 
         {/* HERO SECTION */}
-        <section id="vision" className="relative min-h-screen flex flex-col justify-center pt-32 md:pt-40 pb-12 lg:pb-0">
-          {/* ... HERO CONTENT ... */}
-          <div className="w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8 lg:mt-0 flex-grow">
-            {/* LEFT: Typography & Countdown */}
-            <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <section id="vision" className="relative min-h-screen flex flex-col justify-center items-center pt-32 pb-20">
+          
+          <div className="w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center z-20">
               
-              {/* Internal Tag - Animated with Framer Motion */}
+              {/* Internal Tag - Top */}
               <motion.div 
-                 initial={{ opacity: 0, y: 20 }}
+                 initial={{ opacity: 0, y: -20 }}
                  animate={{ opacity: 1, y: 0 }}
                  transition={{ duration: 0.8, ease: "easeOut" }}
-                 className="mb-6"
+                 className="mb-12"
               >
                   <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                       </span>
-                      <span className="text-[10px] font-bold tracking-[0.25em] text-gray-400 uppercase">
+                      <span className="text-[8px] md:text-[10px] font-bold tracking-[0.25em] text-gray-400 uppercase whitespace-nowrap">
                           {content.hero.internalTag}
                       </span>
                   </div>
               </motion.div>
 
+              {/* LOGO - CENTERPIECE */}
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              >
-                <span className="inline-block border-b border-voler-gold/50 pb-1 text-[10px] font-bold tracking-[0.3em] text-voler-gold uppercase mb-8">
-                  {content.hero.est}
-                </span>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-12"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="mb-8 relative w-full flex justify-center"
               >
                 <img 
                   src={IMAGES.LOGO_FULL_WHITE} 
                   alt="VOLER PRIVÉ" 
-                  className="h-64 md:h-96 lg:h-[28rem] w-auto object-contain"
+                  className="h-32 sm:h-48 md:h-80 lg:h-[28rem] w-auto object-contain drop-shadow-2xl"
                 />
               </motion.div>
-              
-              {/* Countdown Glass Box */}
-              <motion.div 
-                 initial={{ opacity: 0, scale: 0.95 }}
-                 animate={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                 className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 w-full max-w-md shadow-2xl shadow-black/50 relative overflow-hidden"
+
+              {/* Slogan */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                className="text-gray-300 font-sans font-light tracking-[0.15em] md:tracking-[0.2em] text-[10px] md:text-base uppercase mb-16 whitespace-nowrap"
               >
-                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-                 
-                 <div className="flex flex-col items-center">
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-2">{content.hero.launchLabel}</span>
-                    <span className="text-xl font-sans font-medium text-white mb-6">{formattedDate}</span>
-                    
-                    <div className="w-12 h-[1px] bg-voler-gold/30 mb-6"></div>
+                {content.hero.slogan}
+              </motion.p>
+              
+              {/* Countdown Group */}
+              <motion.div 
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+                 className="flex flex-col items-center gap-8"
+              >
+                 {/* Countdown */}
+                 <div className="flex flex-col items-center mt-2 w-full">
+                    <div className="flex items-center gap-4 mb-6 bg-black/40 backdrop-blur-md px-6 py-2 rounded-full border border-white/5">
+                        <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-gray-400">{content.hero.launchLabel}</span>
+                        <div className="h-3 w-[1px] bg-white/20"></div>
+                        <span className="text-[10px] md:text-xs font-sans text-white tracking-wider">{formattedDate}</span>
+                    </div>
                     
                     <Countdown labels={content.countdown} />
                  </div>
               </motion.div>
-            </div>
-
-            {/* RIGHT: Floating Portrait Image (3:4) */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative">
-               {/* Floating Glass Image Container */}
-               <motion.div 
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative w-full max-w-xs lg:max-w-sm xl:max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/80 group transform hover:-translate-y-2 transition-transform duration-700"
-               >
-                  
-                  {/* Bild OHNE Filter und OHNE Noise */}
-                  <img 
-                    src={IMAGES.HERO_MODEL} 
-                    alt="Voler Model" 
-                    referrerPolicy="no-referrer"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-
-                  {/* Bottom Floating Info */}
-                  <div className="absolute bottom-8 left-6 right-6 z-30">
-                    <div className="backdrop-blur-xl bg-black/60 border border-white/5 rounded-lg p-5">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <p className="text-[10px] text-voler-gold uppercase tracking-[0.2em] mb-1">{content.hero.materialLabel}</p>
-                          <p className="text-white font-sans text-xl">{content.hero.materialValue}</p>
-                        </div>
-                        <div className="h-8 w-8 rounded-full border border-white/20 flex items-center justify-center">
-                           <div className="w-1 h-1 bg-white rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-               </motion.div>
-            </div>
-
           </div>
         </section>
 
@@ -147,7 +109,7 @@ const App: React.FC = () => {
                 transition={{ duration: 0.8 }}
               >
                 <span className="text-voler-gold text-xs font-bold tracking-[0.2em] uppercase block mb-6 font-sans">{content.hero.visionTitle}</span>
-                <p className="text-white text-2xl md:text-3xl font-sans font-light leading-[1.8] max-w-3xl mx-auto">
+                <p className="text-white text-xl md:text-3xl font-sans font-light leading-[1.8] max-w-3xl mx-auto">
                   "{content.hero.visionText}"
                 </p>
               </motion.div>
@@ -164,7 +126,7 @@ const App: React.FC = () => {
                       className="flex flex-col items-center"
                     >
                        <div className="w-1 h-8 bg-gradient-to-b from-voler-gold to-transparent mb-4 opacity-50"></div>
-                       <span className="text-white font-sans text-xl tracking-wider">{val}</span>
+                       <span className="text-white font-sans text-lg md:text-xl tracking-wider">{val}</span>
                     </motion.div>
                  ))}
               </div>

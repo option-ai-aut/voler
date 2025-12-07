@@ -46,11 +46,11 @@ const Countdown: React.FC<CountdownProps> = ({ labels }) => {
   };
 
   return (
-    <div className="flex gap-4 md:gap-8 text-center text-voler-accent mt-8 font-sans">
+    <div className="flex gap-4 md:gap-8 text-center text-voler-accent mt-4 font-sans justify-center w-full">
       {Object.entries(timeLeft).map(([unit, value]) => (
-        <div key={unit} className="flex flex-col items-center">
-          <span className="text-2xl md:text-4xl font-bold text-white">{value.toString().padStart(2, '0')}</span>
-          <span className="text-xs uppercase tracking-widest">{getLabel(unit)}</span>
+        <div key={unit} className="flex flex-col items-center min-w-[3.5rem] md:min-w-[4.5rem]">
+          <span className="text-xl md:text-3xl font-light text-white tracking-wider">{value.toString().padStart(2, '0')}</span>
+          <span className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">{getLabel(unit)}</span>
         </div>
       ))}
     </div>

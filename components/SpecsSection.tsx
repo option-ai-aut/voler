@@ -82,19 +82,30 @@ const SpecsSection: React.FC<SpecsSectionProps> = ({ content }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
            
-           {/* Visual Side (Image) */}
-           <div className="lg:col-span-5 relative order-1 lg:order-none">
-              <div className="sticky top-32">
+           {/* Visual Side (Image) - Model Picture Here */}
+           <div className="lg:col-span-5 relative order-1 lg:order-none mb-12 lg:mb-0">
+              <div className="sticky top-32 space-y-8">
+                  
+                  {/* Model Image - NEW PLACE */}
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
+                     <img 
+                      src={IMAGES.HERO_MODEL} 
+                      alt="Voler Model" 
+                      className="w-full h-full object-cover"
+                     />
+                  </div>
+
+                  {/* Detail Zoom Image */}
                   <div 
                     ref={imageRef}
                     onMouseMove={handleMouseMove}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    className="aspect-[3/4] rounded-2xl overflow-hidden bg-voler-dark relative border border-white/10 shadow-2xl shadow-black/60 cursor-crosshair group"
+                    className="aspect-[3/4] rounded-2xl overflow-hidden bg-voler-dark relative border border-white/10 shadow-2xl shadow-black/60 cursor-crosshair group hidden lg:block"
                   >
                     <img 
                       src={IMAGES.PRODUCT_DETAIL} 
-                      alt="Voler Mock Neck Tee" 
+                      alt="Voler Mock Neck Tee Detail" 
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover transition-transform duration-100 ease-out will-change-transform"
                       style={zoomStyle}
@@ -104,8 +115,6 @@ const SpecsSection: React.FC<SpecsSectionProps> = ({ content }) => {
                     <div className={`absolute top-6 left-6 z-20 transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}>
                          <p className="text-white font-sans text-xl drop-shadow-lg">{content.detailView}</p>
                     </div>
-
-                    <div className={`absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/50 to-transparent transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}></div>
                   </div>
               </div>
            </div>

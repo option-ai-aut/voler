@@ -67,6 +67,7 @@ type ContentData = {
     visionText: string;
     valuesTitle: string;
     values: string[];
+    slogan: string;
   };
   specs: {
     badge: string;
@@ -103,6 +104,7 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
       visionText: "VOLER PRIVÉ exists because we want to solve the problems of synthetic sportswear – odor, discomfort, and plastic – with high-quality Merino performance.",
       valuesTitle: "Values",
       values: ["Sustainable", "Exclusive", "Athletic"],
+      slogan: "Exclusive performance for those who fly higher.",
     },
     specs: {
       badge: "Specification",
@@ -211,6 +213,7 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
       visionText: "VOLER PRIVÉ existiert, weil wir die Probleme synthetischer Sportkleidung lösen wollen – Geruch, Unbequemlichkeit und Plastik – mit hochwertiger Merino-Performance.",
       valuesTitle: "Werte",
       values: ["Nachhaltig", "Exklusiv", "Sportlich"],
+      slogan: "Exclusive Performance für jene, die höher fliegen.",
     },
     specs: {
       badge: "Spezifikationen",
