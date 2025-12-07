@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Countdown from './components/Countdown';
 import SpecsSection from './components/SpecsSection';
 import Roadmap from './components/Roadmap';
+import StrategySection from './components/StrategySection';
 import { IMAGES, LAUNCH_DATE, DICTIONARY } from './constants';
 
 const App: React.FC = () => {
@@ -31,10 +32,9 @@ const App: React.FC = () => {
         <Navbar lang={lang} setLang={setLang} />
 
         {/* HERO SECTION */}
-        <section id="vision" className="relative min-h-screen flex items-center justify-center pt-24 md:pt-0 pb-12 md:pb-0">
+        <section id="vision" className="relative min-h-screen flex flex-col justify-center pt-32 md:pt-40 pb-12 lg:pb-0">
           {/* ... HERO CONTENT ... */}
-          <div className="w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center mt-8 md:mt-0">
-            {/* ... (bestehender Hero Code) ... */}
+          <div className="w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8 lg:mt-0 flex-grow">
             {/* LEFT: Typography & Countdown */}
             <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
               
@@ -66,14 +66,18 @@ const App: React.FC = () => {
                 </span>
               </motion.div>
 
-              <motion.h1 
+              <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} // Custom bezier for premium feel
-                className="relative z-30 text-lg sm:text-3xl md:text-9xl font-serif font-bold text-white tracking-tight mb-4 md:mb-12 drop-shadow-2xl leading-none whitespace-nowrap"
+                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="mb-12"
               >
-                VOLER PRIVÉ
-              </motion.h1>
+                <img 
+                  src={IMAGES.LOGO_FULL_WHITE} 
+                  alt="VOLER PRIVÉ" 
+                  className="h-64 md:h-96 lg:h-[28rem] w-auto object-contain"
+                />
+              </motion.div>
               
               {/* Countdown Glass Box */}
               <motion.div 
@@ -86,7 +90,7 @@ const App: React.FC = () => {
                  
                  <div className="flex flex-col items-center">
                     <span className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-2">{content.hero.launchLabel}</span>
-                    <span className="text-xl font-serif italic text-white mb-6">{formattedDate}</span>
+                    <span className="text-xl font-sans font-medium text-white mb-6">{formattedDate}</span>
                     
                     <div className="w-12 h-[1px] bg-voler-gold/30 mb-6"></div>
                     
@@ -102,7 +106,7 @@ const App: React.FC = () => {
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/80 group transform hover:-translate-y-2 transition-transform duration-700"
+                  className="relative w-full max-w-xs lg:max-w-sm xl:max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/80 group transform hover:-translate-y-2 transition-transform duration-700"
                >
                   
                   {/* Bild OHNE Filter und OHNE Noise */}
@@ -119,7 +123,7 @@ const App: React.FC = () => {
                       <div className="flex justify-between items-center">
                         <div>
                           <p className="text-[10px] text-voler-gold uppercase tracking-[0.2em] mb-1">{content.hero.materialLabel}</p>
-                          <p className="text-white font-serif italic text-xl">{content.hero.materialValue}</p>
+                          <p className="text-white font-sans text-xl">{content.hero.materialValue}</p>
                         </div>
                         <div className="h-8 w-8 rounded-full border border-white/20 flex items-center justify-center">
                            <div className="w-1 h-1 bg-white rounded-full"></div>
@@ -142,12 +146,9 @@ const App: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="text-voler-gold text-xs font-bold tracking-[0.2em] uppercase block mb-6">Philosophy</span>
-                <h2 className="text-3xl md:text-5xl font-serif text-white mb-8 italic leading-tight">
-                  "{content.hero.visionTitle}"
-                </h2>
-                <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-light">
-                  {content.hero.visionText}
+                <span className="text-voler-gold text-xs font-bold tracking-[0.2em] uppercase block mb-6 font-sans">{content.hero.visionTitle}</span>
+                <p className="text-white text-2xl md:text-3xl font-sans font-light leading-[1.8] max-w-3xl mx-auto">
+                  "{content.hero.visionText}"
                 </p>
               </motion.div>
 
@@ -163,33 +164,42 @@ const App: React.FC = () => {
                       className="flex flex-col items-center"
                     >
                        <div className="w-1 h-8 bg-gradient-to-b from-voler-gold to-transparent mb-4 opacity-50"></div>
-                       <span className="text-white font-serif italic text-xl tracking-wider">{val}</span>
+                       <span className="text-white font-sans text-xl tracking-wider">{val}</span>
                     </motion.div>
                  ))}
               </div>
            </div>
         </section>
 
-        {/* SPECS / TECH STACK */}
-        <SpecsSection content={content.specs} />
+        {/* SPECS / TECH PACK */}
+        <div id="specs">
+          <SpecsSection content={content.specs} />
+        </div>
+
+        {/* BRAND STRATEGY (INVESTOR BRIEF) */}
+        <div id="strategy">
+          <StrategySection content={content.strategy} />
+        </div>
 
         {/* ROADMAP */}
-        <Roadmap content={content.roadmap} />
+        <div id="roadmap">
+          <Roadmap content={content.roadmap} />
+        </div>
 
         {/* FOOTER / CONTACT */}
         <footer id="contact" className="bg-black/40 backdrop-blur-md py-20 border-t border-white/5 relative">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div className="mb-8 md:mb-0">
-              <h4 className="text-2xl md:text-3xl font-serif font-bold text-white tracking-widest whitespace-nowrap">VOLER PRIVÉ</h4>
-              <p className="text-gray-600 text-[10px] tracking-[0.2em] uppercase mt-2">Based in Vienna</p>
+            <div className="mb-12 md:mb-0">
+              <img src={IMAGES.LOGO_FULL_WHITE} alt="VOLER PRIVÉ" className="h-64 md:h-96 w-auto mb-8" />
             </div>
             
             <div className="flex flex-col items-start md:items-end space-y-4">
               <p className="text-voler-gold text-xs tracking-widest uppercase">{content.footer.inquiries}</p>
-              <a href="mailto:voler.office@gmx.at" className="text-gray-300 hover:text-white transition-colors text-xl font-serif italic border-b border-transparent hover:border-white pb-1">
+              <a href="mailto:voler.office@gmx.at" className="text-gray-300 hover:text-white transition-colors text-xl font-sans border-b border-transparent hover:border-white pb-1">
                 voler.office@gmx.at
               </a>
-              <p className="text-gray-700 text-xs mt-4">
+              <p className="text-gray-600 text-[10px] tracking-[0.2em] uppercase mt-4">Based in Vienna</p>
+              <p className="text-gray-700 text-xs mt-2">
                 © 2025 Voler Privé eUG. All rights reserved.
               </p>
             </div>

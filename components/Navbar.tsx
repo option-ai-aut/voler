@@ -51,6 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
             <div className="flex space-x-8 text-xs font-medium text-gray-300 tracking-[0.2em] uppercase">
                 <a href="#vision" className="hover:text-voler-gold transition-colors cursor-pointer">Vision</a>
                 <a href="#specs" className="hover:text-voler-gold transition-colors cursor-pointer">Tech Pack</a>
+                <a href="#strategy" className="hover:text-voler-gold transition-colors cursor-pointer">Strategy</a>
                 <a href="#roadmap" className="hover:text-voler-gold transition-colors cursor-pointer">Timeline</a>
                 <a href="#contact" className="hover:text-voler-gold transition-colors cursor-pointer">Contact</a>
             </div>
@@ -90,6 +91,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
             <div className="flex flex-col space-y-8 text-center">
                 <a href="#vision" onClick={closeMenu} className="text-2xl font-serif text-white hover:text-voler-gold transition-colors">Vision</a>
                 <a href="#specs" onClick={closeMenu} className="text-2xl font-serif text-white hover:text-voler-gold transition-colors">Tech Pack</a>
+                <a href="#strategy" onClick={closeMenu} className="text-2xl font-serif text-white hover:text-voler-gold transition-colors">Strategy</a>
                 <a href="#roadmap" onClick={closeMenu} className="text-2xl font-serif text-white hover:text-voler-gold transition-colors">Timeline</a>
                 <a href="#contact" onClick={closeMenu} className="text-2xl font-serif text-white hover:text-voler-gold transition-colors">Contact</a>
                 

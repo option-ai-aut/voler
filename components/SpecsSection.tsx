@@ -21,8 +21,8 @@ const SpecCard: React.FC<{ spec: ProductSpec, index: number }> = ({ spec, index 
     className="backdrop-blur-2xl bg-white/[0.03] border border-white/10 p-8 rounded-2xl hover:bg-white/[0.06] transition-all duration-500 group shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]"
   >
     <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
-      <h3 className="text-2xl font-serif text-white italic">{spec.category}</h3>
-      <span className="text-voler-gold font-serif text-lg opacity-60">0{index + 1}</span>
+      <h3 className="text-2xl font-sans font-medium text-white">{spec.category}</h3>
+      <span className="text-voler-gold font-sans text-lg opacity-60">0{index + 1}</span>
     </div>
     
     {/* Clean Grid Layout for Specs */}
@@ -68,7 +68,7 @@ const SpecsSection: React.FC<SpecsSectionProps> = ({ content }) => {
   };
 
   return (
-    <section id="specs" className="py-16 md:py-32 relative">
+    <section id="specs" className="py-16 md:py-24 lg:py-32 relative">
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-20 text-center md:text-left flex flex-col md:flex-row items-end justify-between gap-8 border-b border-white/5 pb-8">
@@ -102,7 +102,7 @@ const SpecsSection: React.FC<SpecsSectionProps> = ({ content }) => {
                     
                     {/* Minimal Label - Fades out on hover */}
                     <div className={`absolute top-6 left-6 z-20 transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}>
-                         <p className="text-white font-serif italic text-xl drop-shadow-lg">{content.detailView}</p>
+                         <p className="text-white font-sans text-xl drop-shadow-lg">{content.detailView}</p>
                     </div>
 
                     <div className={`absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/50 to-transparent transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}></div>

@@ -3,17 +3,58 @@ import { ProductSpec, RoadmapItem } from './types';
 // BILDER KONFIGURATION:
 export const IMAGES = {
   // Model Bild (High Res)
-  HERO_MODEL: "https://drive.google.com/thumbnail?id=1QstZLOhaVo5b8FHHZ62jWk2FG6Pdcw_b&sz=w1920",
+  HERO_MODEL: "https://drive.google.com/thumbnail?id=11t4Euc6mH3gVnyhgOHRwq751waWzdqqr&sz=w1920",
   // Produkt Bild (T-Shirt)
   PRODUCT_DETAIL: "https://drive.google.com/thumbnail?id=1ACqpEbTTjQgwYaroRbW5HnFPgpJDqkfo&sz=w1000", 
   // Platzhalter für Stoff-Detail
   TEXTURE_CLOSEUP: "https://picsum.photos/id/355/800/800",
   // LOGOS
   LOGO_TEXT_WHITE: "https://drive.google.com/thumbnail?id=1lim5EwMHVBVQFYJTASxoPvynEFTl8knH&sz=w1000",
-  LOGO_SYMBOL_WHITE: "https://drive.google.com/thumbnail?id=1iGe-zazfinmrgGaAEwoB9gLI2tU6kxuw&sz=w1000"
+  LOGO_SYMBOL_WHITE: "https://drive.google.com/thumbnail?id=1iGe-zazfinmrgGaAEwoB9gLI2tU6kxuw&sz=w1000",
+  LOGO_FULL_WHITE: "https://drive.google.com/thumbnail?id=1hJquWrbu-dPZIphWUEGYYqhhxVSCQ0K-&sz=w1000"
 };
 
 export const LAUNCH_DATE = "2026-04-01T00:00:00";
+
+type BrandStrategy = {
+  title: string;
+  story: {
+    title: string;
+    text: string;
+  };
+  goals: {
+    title: string;
+    short: string;
+    mid: string;
+    long: string;
+  };
+  audience: {
+    title: string;
+    description: string;
+    needs: string;
+    emotions: string;
+  };
+  positioning: {
+    title: string;
+    usp: string;
+  };
+  products: {
+    title: string;
+    current: string;
+    pricing: string;
+    futureColors: string[];
+  };
+  marketing: {
+    title: string;
+    channels: string;
+    partners: string;
+  };
+  aiTech: {
+    title: string;
+    description: string;
+    features: string[];
+  };
+};
 
 type ContentData = {
   hero: {
@@ -26,8 +67,6 @@ type ContentData = {
     visionText: string;
     valuesTitle: string;
     values: string[];
-    storyTitle: string;
-    storyText: string;
   };
   specs: {
     badge: string;
@@ -40,6 +79,7 @@ type ContentData = {
     title: string;
     items: RoadmapItem[];
   };
+  strategy: BrandStrategy;
   footer: {
     inquiries: string;
   };
@@ -59,12 +99,10 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
       launchLabel: "Official Launch Date",
       materialLabel: "Material",
       materialValue: "Merino",
-      visionTitle: "Define Momentum.",
-      visionText: "Voler exists to solve the problems of synthetic sportswear. No odor. No compromise. Pure Merino performance for those who demand excellence.",
-      valuesTitle: "Core Values",
+      visionTitle: "Vision",
+      visionText: "VOLER PRIVÉ exists because we want to solve the problems of synthetic sportswear – odor, discomfort, and plastic – with high-quality Merino performance.",
+      valuesTitle: "Values",
       values: ["Sustainable", "Exclusive", "Athletic"],
-      storyTitle: "The Origin",
-      storyText: "We built Voler because we couldn't find an alternative. Standard gym wear is synthetic, smelly, and mass-produced. We wanted something better: Health, Quality, Status. This is gym wear for the ambitious.",
     },
     specs: {
       badge: "Specification",
@@ -109,6 +147,49 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
         { date: "01.04.2026", title: "Official Launch", description: "Direct-to-Consumer release (Q2 2026).", status: "future" }
       ]
     },
+    strategy: {
+      title: "Strategic Brief",
+      story: {
+        title: "Origin Story",
+        text: "We couldn't find a classic, elegant alternative for Merino gym wear. So we created it ourselves."
+      },
+      goals: {
+        title: "Strategic Goals",
+        short: "Validation: First product launch & sales.",
+        mid: "Growth: Reaching break-even point.",
+        long: "Establishment: Building a sustainable global brand."
+      },
+      audience: {
+        title: "Target Audience",
+        description: "Affluent individuals & aspiring high-performers.",
+        needs: "Health, Quality, Status, Comfort, Alternatives to standard gym wear.",
+        emotions: "Belonging, Confidence, Elite."
+      },
+      positioning: {
+        title: "Market Position",
+        usp: "Unique combination of high-end Merino performance and exclusive gym aesthetics. A gap in the market."
+      },
+      products: {
+        title: "Product & Pricing",
+        current: "Premium Gym Wear (T-Shirts)",
+        pricing: "€69 - €99",
+        futureColors: ["Graphite", "Dark Green", "Anthracite", "Sahara Sand"]
+      },
+      marketing: {
+        title: "Go-to-Market",
+        channels: "Organic Content (TikTok, IG, FB) + Paid Ads.",
+        partners: "Exclusive fitness studios, niche influencers, personal brands."
+      },
+      aiTech: {
+        title: "AI Integration & Advantage",
+        description: "Leveraging extensive entrepreneurial experience in high-quality AI automation and content generation.",
+        features: [
+          "Ultra-realistic Virtual Try-On",
+          "AI Content Production at Scale",
+          "Automated Customer Experience"
+        ]
+      }
+    },
     footer: {
       inquiries: "Direct Inquiries"
     },
@@ -126,12 +207,10 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
       launchLabel: "Offizielles Startdatum",
       materialLabel: "Material",
       materialValue: "Merino",
-      visionTitle: "Define Momentum.",
-      visionText: "Voler existiert, um die Probleme synthetischer Sportkleidung zu lösen. Kein Geruch. Keine Kompromisse. Reine Merino-Performance für höchste Ansprüche.",
-      valuesTitle: "Unsere Werte",
+      visionTitle: "Vision",
+      visionText: "VOLER PRIVÉ existiert, weil wir die Probleme synthetischer Sportkleidung lösen wollen – Geruch, Unbequemlichkeit und Plastik – mit hochwertiger Merino-Performance.",
+      valuesTitle: "Werte",
       values: ["Nachhaltig", "Exklusiv", "Sportlich"],
-      storyTitle: "Der Ursprung",
-      storyText: "Wir haben Voler gegründet, weil es keine Alternative gab. Standard-Sportkleidung ist synthetisch, riecht und ist Massenware. Wir wollten etwas Besseres: Gesundheit, Qualität, Status. Das ist Gym Wear für Ambitionierte.",
     },
     specs: {
       badge: "Spezifikationen",
@@ -175,6 +254,49 @@ export const DICTIONARY: Record<'EN' | 'DE', ContentData> = {
         { date: "Q1 2026", title: "Massenproduktion", description: "Start der Serienfertigung.", status: "future" },
         { date: "01.04.2026", title: "Offizieller Launch", description: "Direct-to-Consumer Veröffentlichung (Q2 2026).", status: "future" }
       ]
+    },
+    strategy: {
+      title: "Strategischer Ausblick",
+      story: {
+        title: "Ursprung",
+        text: "Wir fanden keine Alternative für klassisch-elegante Gym Wear aus Merinowolle. Also haben wir sie selbst erschaffen."
+      },
+      goals: {
+        title: "Ziele",
+        short: "Kurzfristig: Produkt-Launch & erste Verkäufe.",
+        mid: "Mittelfristig: Erreichen des Break-Even-Points.",
+        long: "Langfristig: Nachhaltiger Aufbau der Marke."
+      },
+      audience: {
+        title: "Zielgruppe",
+        description: "Wohlhabende Menschen & aufstrebende Persönlichkeiten.",
+        needs: "Gesundheit, Qualität, Status, fehlender Komfort bei Gym Wear.",
+        emotions: "Dazugehörigkeit, Selbstvertrauen, Elite."
+      },
+      positioning: {
+        title: "Positionierung",
+        usp: "Marktpositionierung durch besseres Image und einzigartige Produktkombination (Merino Performance für Gym)."
+      },
+      products: {
+        title: "Produkt & Pricing",
+        current: "Gym Wear (T-Shirts)",
+        pricing: "69€ - 99€",
+        futureColors: ["Graphit", "Dunkelgrün", "Anthrazit", "Sahara Sand"]
+      },
+      marketing: {
+        title: "Marktstrategie",
+        channels: "Mix aus organischem Content (TikTok, IG, FB) & Paid Ads.",
+        partners: "Exklusive Fitnessstudios, ausgewählte Influencer, Personal Brands."
+      },
+      aiTech: {
+        title: "AI Integration & Advantage",
+        description: "Nutzung umfassender Erfahrung in KI-Automation und Content-Generierung höchster Qualität.",
+        features: [
+          "Ultra-realistisches Virtual Try-On (User Upload)",
+          "Skalierbare AI Content Produktion",
+          "Automatisierte Customer Experience"
+        ]
+      }
     },
     footer: {
       inquiries: "Direkte Anfragen"
