@@ -25,12 +25,8 @@ const Roadmap: React.FC<RoadmapProps> = ({ content }) => {
             const isCurrent = item.status === 'current';
             
             return (
-              <motion.div 
+              <div 
                 key={index} 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="lg:flex items-center group relative pl-8 lg:pl-0"
               >
                  {/* Timeline Dot */}
@@ -55,7 +51,7 @@ const Roadmap: React.FC<RoadmapProps> = ({ content }) => {
                       {item.description}
                     </p>
                  </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
