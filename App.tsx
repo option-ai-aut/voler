@@ -59,12 +59,12 @@ const App: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-8 relative w-full flex justify-center"
+                className="mb-8 relative w-full flex justify-center px-[60px] md:px-0"
               >
                 <img 
                   src={IMAGES.LOGO_FULL_WHITE} 
                   alt="VOLER PRIVÉ" 
-                  className="h-32 sm:h-48 md:h-80 lg:h-[28rem] w-auto object-contain drop-shadow-2xl"
+                  className="w-full h-auto md:w-auto md:h-[28rem] object-contain drop-shadow-2xl"
                 />
               </motion.div>
 
