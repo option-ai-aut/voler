@@ -16,8 +16,8 @@ const SpecCard: React.FC<{ spec: ProductSpec, index: number }> = ({ spec, index 
   <motion.div 
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.6, delay: index * 0.1 }}
+    viewport={{ once: true, amount: 0.1 }}
+    transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
     className="backdrop-blur-2xl bg-white/[0.03] border border-white/10 p-8 rounded-2xl hover:bg-white/[0.06] transition-all duration-500 group shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]"
   >
     <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
