@@ -71,8 +71,8 @@ const SpecsSection: React.FC<SpecsSectionProps> = ({ content }) => {
     <section id="specs" className="py-16 md:py-24 lg:py-32 relative">
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="mb-20 text-center md:text-left flex flex-col md:flex-row items-end justify-between gap-8 border-b border-white/5 pb-8">
-            <div>
+        <div className="mb-20 text-center md:text-left flex flex-col md:flex-row items-center md:items-end justify-between gap-8 border-b border-white/5 pb-8">
+            <div className="flex flex-col items-center md:items-start w-full md:w-auto">
               <span className="inline-block px-3 py-1 border border-voler-gold/20 rounded-full text-[10px] font-bold tracking-[0.2em] text-voler-gold uppercase mb-4 bg-voler-gold/5">
                 {content.badge}
               </span>

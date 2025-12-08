@@ -150,12 +150,12 @@ const App: React.FC = () => {
 
         {/* FOOTER / CONTACT */}
         <footer id="contact" className="bg-black/40 backdrop-blur-md py-20 border-t border-white/5 relative">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div className="mb-12 md:mb-0">
-              <img src={IMAGES.LOGO_FULL_WHITE} alt="VOLER PRIVÉ" className="h-64 md:h-96 w-auto mb-8" />
+          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-12 md:mb-0 w-full md:w-auto flex justify-center md:block">
+              <img src={IMAGES.LOGO_FULL_WHITE} alt="VOLER PRIVÉ" className="h-80 md:h-96 w-auto" />
             </div>
             
-            <div className="flex flex-col items-start md:items-end space-y-4">
+            <div className="flex flex-col items-center md:items-end space-y-4 text-center md:text-right w-full md:w-auto">
               <p className="text-voler-gold text-xs tracking-widest uppercase">{content.footer.inquiries}</p>
               <a href="mailto:voler.office@gmx.at" className="text-gray-300 hover:text-white transition-colors text-xl font-sans border-b border-transparent hover:border-white pb-1">
                 voler.office@gmx.at
